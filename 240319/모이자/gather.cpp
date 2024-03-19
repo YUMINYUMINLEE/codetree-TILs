@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <algorithm>
 #include <vector>
+#include <climits>
 using namespace std;
 
 int main() {
@@ -12,15 +13,15 @@ for(int i=0;i<n;i++){
     cin>>arr[i];
 }
 
-int max_sum=0;
+int min_sum=INT_MAX;
 for(int i=0;i<n;i++){
     int home=arr[i];
     int sum=0;
-    for(int j=0;j<n-1;j++){
-        sum+=abs(arr[j]-arr[i]);
+    for(int j=0;j<n;j++){
+        sum+=abs(i-j)*arr[j];
     }
-    max_sum=max(max_sum,sum);
+    min_sum=min(min_sum,sum);
 }
 
-cout<<max_sum;
+cout<<min_sum;
 }
