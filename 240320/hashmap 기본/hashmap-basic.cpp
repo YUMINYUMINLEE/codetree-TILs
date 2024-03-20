@@ -21,7 +21,6 @@ int main() {
             cin>>num;
             if(um.find(num)!=um.end()){
                 cout<<(um.find(num))->second<<"\n";
-                um.erase(num);
             }
             else
                 cout<<"None"<<"\n";
