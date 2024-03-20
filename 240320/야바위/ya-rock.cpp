@@ -7,32 +7,23 @@ int main() {
     int n;
     cin >> n;
 
-    int max_score = 0;
+    vector<int> scores(3, 0); // 각 위치에서 얻을 수 있는 점수를 저장할 벡터
 
-    // 각 초기 위치에 대해 시뮬레이션을 실행
-    for (int initial = 1; initial <= 3; ++initial) {
-        int score = 0;
-        int current = initial; // 현재 조약돌이 있는 위치
-
-        for (int i = 0; i < n; ++i) {
-            int a, b, c;
-            cin >> a >> b >> c;
-            
-            // 교환
-            if (current == a) {
-                current = b;
-            } else if (current == b) {
-                current = a;
-            }
-
-            // c 위치에 조약돌이 있는지 확인
-            if (current == c) {
-                score++;
-            }
-        }
-
-        max_score = max(max_score, score);
+    for (int j = 0; j < n; ++j) {
+        int a, b, c;
+        cin >> a >> b >> c;
+        // 입력된 a, b, c 값을 사용하여 교환과 점수 계산 로직을 수행
     }
 
-    cout << max_score;
+    // 최대 점수를 얻을 수 있는 초기 위치 찾기
+    int maxScore = 0;
+    int bestPosition = 1;
+    for (int i = 0; i < 3; ++i) {
+        if (scores[i] > maxScore) {
+            maxScore = scores[i];
+            bestPosition = i + 1; // 실제 위치는 인덱스 + 1
+        }
+    }
+
+    cout << bestPosition;
 }
