@@ -1,29 +1,34 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 int main() {
     int n;
-    cin >> n;
+    cin>>n;
 
-    vector<int> scores(3, 0); // 각 위치에서 얻을 수 있는 점수를 저장할 벡터
+    vector<int> cups(3);
 
-    for (int j = 0; j < n; ++j) {
-        int a, b, c;
-        cin >> a >> b >> c;
-        // 입력된 a, b, c 값을 사용하여 교환과 점수 계산 로직을 수행
-    }
+    int max_score=0;
 
-    // 최대 점수를 얻을 수 있는 초기 위치 찾기
-    int maxScore = 0;
-    int bestPosition = 1;
-    for (int i = 0; i < 3; ++i) {
-        if (scores[i] > maxScore) {
-            maxScore = scores[i];
-            bestPosition = i + 1; // 실제 위치는 인덱스 + 1
+    for(int i=0;i<3;i++){
+        fill(cups.begin(), cups.end(), 0);
+        cups[i]=1;
+        int score=0;
+        for(int j=0;j<n;j++){
+            int a,b,c;
+            cin>>a>>b>>c;
+            int temp=cups[a-1];
+            cups[a-1]=cups[b-1];
+            cups[b-1]=temp;
+            if(cups[c-1]==1){
+                score+=1;
+            }
+        }
+        if(score>max_score){
+            max_score=score;
         }
     }
-
-    cout << bestPosition;
+    cout<<max_score;
 }
