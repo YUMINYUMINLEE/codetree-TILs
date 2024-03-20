@@ -10,7 +10,7 @@ int main() {
         int sum=0;
         string goal=to_string(i);
         for(int j=0;j<goal.size();j++){
-            sum+=static_cast<int>(goal[j]);
+            sum+=goal[j]-'0';
         }
         max_sum=max(max_sum,sum);
     }
