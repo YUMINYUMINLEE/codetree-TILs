@@ -14,9 +14,9 @@ int main() {
             int num1;
             int num2;
             cin>>num1>>num2;
-            um.insert({num1,num2});
+            um[num1]=num2;
         }
-        if(s=="find"){
+        else if(s=="find"){
             int num;
             cin>>num;
             if(um.find(num)!=um.end()){
@@ -25,7 +25,7 @@ int main() {
             else
                 cout<<"None"<<"\n";
         }
-        if(s=="remove"){
+        else if(s=="remove"){
             int num;
             cin>>num;
             um.erase(num);
