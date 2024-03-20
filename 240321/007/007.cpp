@@ -1,30 +1,22 @@
 #include <iostream>
 #include <string>
+#include <tuple>
 
 using namespace std;
 
-class Program{
-    public:
-        string secretCode;
-        char meetingPoint;
-        int time;
-
-    Program(string secretCode,char meetingPoint,int time){
-        this->secretCode=secretCode;
-        this-> meetingPoint= meetingPoint;
-        this->time=time;
-    }
-
-};
 
 int main(){
     string s;
     char c;
     int num;
     cin>>s>>c>>num;
-    Program program=Program(s,c,num);
+    tuple<string,char,int> t=make_tuple(s,c,num);
 
-    cout<<"secret code : "<<program.secretCode<<"\n";
-    cout<<"meeting point : "<<program.meetingPoint<<"\n";
-    cout<<"time : "<<program.time<<"\n";
+        string v1=get<0>(t);
+        char v2=get<1>(t);
+        int v3=get<2>(t);
+
+    cout<<"secret code : "<<v1<<"\n";
+    cout<<"meeting point : "<<v2<<"\n";
+    cout<<"time : "<<v3<<"\n";
 }
