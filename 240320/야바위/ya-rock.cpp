@@ -1,33 +1,38 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 int main() {
     int n;
-    cin>>n;
+    cin >> n;
 
-    vector<int> cups(3);
+    int max_score = 0;
 
-    int max_score=0;
+    // 각 초기 위치에 대해 시뮬레이션을 실행
+    for (int initial = 1; initial <= 3; ++initial) {
+        int score = 0;
+        int current = initial; // 현재 조약돌이 있는 위치
 
-    for(int i=0;i<3;i++){
-        cups={0,0,0};
-        cups[i]=1;
-        int score=0;
-        for(int j=0;j<n;j++){
-            int a,b,c;
-            int temp;
-            cin>>a>>b>>c;
-            temp=cups[a];
-            cups[a]=cups[b];
-            cups[b]=temp;
-            if(cups[c]==1){
-                score+=1;
+        for (int i = 0; i < n; ++i) {
+            int a, b, c;
+            cin >> a >> b >> c;
+            
+            // 교환
+            if (current == a) {
+                current = b;
+            } else if (current == b) {
+                current = a;
+            }
+
+            // c 위치에 조약돌이 있는지 확인
+            if (current == c) {
+                score++;
             }
         }
-        max_score=max(max_score,score);
+
+        max_score = max(max_score, score);
     }
-    cout<<max_score;
+
+    cout << max_score;
 }
