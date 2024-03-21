@@ -1,31 +1,41 @@
 #include <iostream>
-#include <tuple>
 #include <algorithm>
 #include <vector>
 
 using namespace std;
 
+class Student{
+    public:
+        string name;
+        int height,weight;
+
+        Student( string name,int height,int weight){
+            this->name=name;
+            this->height=height;
+            this->weight=weight;
+        }
+};
+
+bool cmp(const Student& a,const Student& b){
+    return a.height<b.height;
+}
+
 int main() {\
     int n;
     cin>>n;
 
-    vector<tuple<string,int,int>> t(n);
+    vector<Student> student;
 
     for(int i=0;i<n;i++){
         string s;
         int a,b;
+
         cin>>s>>a>>b;
-        t[i]=make_tuple(s,a,b);
+
+        student.push_back(Student(s, a, b));
     }
 
-    sort(t.begin(), t.end(), [](const tuple<string,int,int>& a,const tuple<string,int,int>& b){
-        return get<1>(a)<get<1>(b);
-    });
-
-    for(int i=0;i<n;i++){
-        string s;
-        int a,b;
-        tie(s,a,b)=t[i];
-        cout<<s<<" "<<a<<" "<<b<<"\n";
-    }
+    sort(student.begin(),student.end(),cmp);
+      for(int i = 0; i < n; i++)
+        cout << student[i].name << " " << student[i].height << " " << student[i].weight << endl;
 }
