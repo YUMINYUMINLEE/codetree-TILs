@@ -22,7 +22,7 @@ int main() {
         for(int j=0;j<n;j++){
             int cnt1=0;
             for(int d=0;d<4;d++){
-                int nx=x+dx[d],ny=y+dy[d];
+                int nx=i+dx[d],ny=j+dy[d];
                 if(InRange(nx,ny,n)&&arr[nx][ny]==1){
                     cnt1++;
                 }
