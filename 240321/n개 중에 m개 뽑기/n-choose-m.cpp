@@ -3,6 +3,8 @@
 
 using namespace std;
 
+
+int n;
 vector<int> answer;
 
 void Print() {
