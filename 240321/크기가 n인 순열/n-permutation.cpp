@@ -5,7 +5,7 @@ using namespace std;
 #define MAX_N 3
 
 int n;
-bool visited[MAX_N+1];
+vector<bool> visited;
 vector<int> answer;
 
 void Print(){
@@ -34,6 +34,7 @@ void Choose(int curr_num){
 
 int main(){
     cin>>n;
+    visited.resize(n + 1);
     Choose(1);
     return 0;
 }
