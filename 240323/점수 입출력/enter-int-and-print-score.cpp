@@ -3,5 +3,5 @@
 int main() {
     int n;
     std::cin>>n;
-    std::cout<<n;
+    std::cout<<"Your score is "<<n<<" point.";
 }
