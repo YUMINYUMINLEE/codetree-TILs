@@ -2,6 +2,6 @@
 
 int main() {
     int a,b,c;
-    std::cin>>a>>b>>C;
-    std::cout<<a<<" "<<b<<" "<<C;
+    std::cin>>a>>b>>c;
+    std::cout<<a<<" "<<b<<" "<<c;
 }
