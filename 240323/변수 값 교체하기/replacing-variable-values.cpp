@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main() {
-    int a=31;
+    int a=3;
     a=6;
     std::cout<<a;
 }
