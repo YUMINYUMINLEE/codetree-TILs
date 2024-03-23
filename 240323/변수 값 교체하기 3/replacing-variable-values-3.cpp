@@ -6,5 +6,5 @@ int main() {
     a=b;
     b=temp;
 
-    std::cout<<a<<" "<<b;
+    std::cout<<a<<"\n"<<b;
 }
