@@ -6,9 +6,8 @@ int main() {
     temp=c;
     c=b;
     b=a;
-    a=c;
+    a=temp;
 
-    
 
     std::cout<<a<<"\n"<<b<<"\n"<<c;
 
