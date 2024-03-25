@@ -12,7 +12,7 @@ int main() {
                                        //0,    1  , 2   ,3
 
     cin>>N>>M;
-    bool arr[100][100];
+    bool arr[100][100]={false};
 
     while(M--){
         int x,y;
