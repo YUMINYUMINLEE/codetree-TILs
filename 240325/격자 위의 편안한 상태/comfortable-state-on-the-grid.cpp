@@ -14,6 +14,7 @@ int main() {
     while(M--){
         int x,y;
         cin>>x>>y;
+        x-=1;y-=1;
         arr[x][y]=true;
 
         int cnt=0;
@@ -26,13 +27,5 @@ int main() {
         }
         else
             cout<<0<<"\n";
-       
-
-
-
-
     }
-
-    
-
 }
