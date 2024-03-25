@@ -2,36 +2,40 @@
 
 using namespace std;
 
-bool InRange(int x,int y,int n){
+
+int dx[4]={0,1,-1,0};
+int dy[4]={1,0,0,-1};//오른쪽,아래,,왼쪽
+int n,t;
+int r,c,dir;
+int mapper[128];
+
+bool InRange(int x,int y){
     return (x>=0&&x<n&&y>=0&&y<n);
 }
-int getDir(char dir_num){
-    if(dir_num=='U')
-        return 1;
-    else if(dir_num=='D')
-        return 2;
-    else if(dir_num=='R')
-        return 0;
-    else
-        return 3;
-
+void Simulate() {
+    while(t--) {
+        int nx = r+ dx[dir], ny = c + dy[dir];
+        if(InRange(nx, ny)) {
+            r = nx, c = ny;
+        }
+        else
+            dir = 3 - dir;
+    }
 }
 
 int main() {
-    int n,t,r,c;
     char dir_num;
     cin>>n>>t>>r>>c>>dir_num;
 
-    int dx[4]={1,0,0,-1},dy[4]={0,1,-1,0};
+    mapper['R']=0;
+    mapper['D']=1;
+    mapper['U']=2;
+    mapper['L']=3;
 
-    int nx=r-1,ny=c-1;
-    dir_num=getDir(dir_num);
+    r=r-1,c=c-1;
+    dir=mapper[dir_num];
 
-    while(t--){ 
-        nx=nx+dx[dir_num],ny=ny+dy[dir_num];
-        if(!InRange(nx,ny,n)){
-            dir_num=3-dir_num;
-        }
-    }
+    Simulate();
+
     cout<<r+1<<" "<<c+1;
 }
