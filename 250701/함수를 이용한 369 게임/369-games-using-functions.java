@@ -3,20 +3,11 @@ import java.util.Scanner;
 
 public class Main {
     public static boolean isMagicNum(int i){
-        int cnt=0;
-        int n=i;
-        int[] arr= new int[3];
-        arr=new int[]{3,6,9};
-        if(i%3==0){
-            return true;
-        }
+        if(i%3==0){return true;}
         while(i>0){
-            int num;
-            num=i%10;
-            for(int k=0;k<arr.length;k++){
-                if(num==arr[k]){return true;}
-            }
-             i/=10;
+            int digit = i%10;
+            if(digit==3||digit==6||digit==9){return true;}
+            i/=10;
         }
         return false;
     }
