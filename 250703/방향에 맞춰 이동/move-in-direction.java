@@ -1,7 +1,17 @@
 import java.util.Scanner;
 public class Main {
 
-    public static int[] move(int x,int y,char dir,int num){
+    static class Point{
+        int x;
+        int y;
+
+        Point(int x, int y ){
+            this.x=x;
+            this.y=y;
+        }
+    }
+
+    public static Point move(int x,int y,char dir,int num){
         int[] dx,dy;
         dx=new int[]{1,0,-1,0};
         dy=new int[]{0,-1,0,1};
@@ -14,7 +24,7 @@ public class Main {
                 break;  
             }
         }
-        return new int[] {x,y};
+        return new Point(x,y);
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -24,9 +34,9 @@ public class Main {
         for (int i = 0; i < n; i++) {
             char direction = sc.next().charAt(0);
             int distance = sc.nextInt();
-            int[] result = move(x,y,direction,distance);
-            x=result[0];
-            y=result[1];
+            Point result = move(x,y,direction,distance);
+            x=result.x;
+            y=result.y;
         }
         System.out.print(x+" "+y);
     }
